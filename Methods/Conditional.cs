@@ -71,50 +71,44 @@ namespace Methods
             return res;
         }
 
-        public static double[] AscendingNumberSorting(double a, double b, double c)
+        public static void AscendingNumberSorting(ref double a, ref double b, ref double c)
         {
-            double[] res = null;
-
             if (a > b && a > c)
             {
                 if (b > c)
                 {
-                    res = new double[] { c, b, a };
+                    Variables.SwapVariables(ref a, ref c);
                 }
                 else
                 {
-                    res = new double[] { b, c, a };
+                    Variables.SwapVariables(ref a, ref c);
+                    Variables.SwapVariables(ref b, ref c);
                 }
             }
             if (b > a && b > c)
             {
                 if (a > c)
                 {
-                    res = new double[] { c, a, b };
+                    Variables.SwapVariables(ref b, ref c);
+                    Variables.SwapVariables(ref a, ref c);
                 }
                 else
                 {
-                    res = new double[] { a, c, b };
+                    Variables.SwapVariables(ref c, ref b);
                 }
             }
             if (c > a && c > b)
             {
                 if (a > b)
                 {
-                    res = new double[] { b, a, c }; ;
-                }
-                else
-                {
-                    res = new double[] { a, b, c };
+                    Variables.SwapVariables(ref a, ref b);
                 }
             }
-
-            return res;
         }
 
         public static double[] SolvingQuadraticEquation(double a, double b, double c)
         {
-            double[] res = null;
+            double[] res;
             double x;
             double x2;
             double d = b * b - (4 * a * c);
@@ -137,10 +131,119 @@ namespace Methods
             }
             else
             {
-
+                res = new double[0];
             }
 
             return res;
+        }
+
+        public static string TurnTwoDigitNumberIntoText(int number)
+        {
+            int ten = number / 10;
+            int digits = number % 10;
+            string tenText = null;
+            string digitsText = null;
+
+            if (number >= 10 && number <= 19)
+            {
+                switch (number)
+                {
+                    case (10):
+                        Console.WriteLine("десять");
+                        break;
+                    case (11):
+                        Console.WriteLine("одинадцать");
+                        break;
+                    case (12):
+                        Console.WriteLine("двенадцать");
+                        break;
+                    case (13):
+                        Console.WriteLine("тринадцать");
+                        break;
+                    case (14):
+                        Console.WriteLine("четырнадцать");
+                        break;
+                    case (15):
+                        Console.WriteLine("пятнадцать");
+                        break;
+                    case (16):
+                        Console.WriteLine("шестнадцать");
+                        break;
+                    case (17):
+                        Console.WriteLine("семнадцать");
+                        break;
+                    case (18):
+                        Console.WriteLine("восемнадцать");
+                        break;
+                    case (19):
+                        Console.WriteLine("девятнадцать");
+                        break;
+                }
+            }
+            else
+            {
+                switch (ten)
+                {
+                    case (2):
+                        tenText = "двадцать";
+                        break;
+                    case (3):
+                        tenText = "тридцать";
+                        break;
+                    case (4):
+                        tenText = "сорок";
+                        break;
+                    case (5):
+                        tenText = "пятьдесят";
+                        break;
+                    case (6):
+                        tenText = "шестьдесят";
+                        break;
+                    case (7):
+                        tenText = "семьдесят";
+                        break;
+                    case (8):
+                        tenText = "восемьдесят";
+                        break;
+                    case (9):
+                        tenText = "девяносто";
+                        break;
+                }
+                switch (digits)
+                {
+                    case (1):
+                        digitsText = "один";
+                        break;
+                    case (2):
+                        digitsText = "два";
+                        break;
+                    case (3):
+                        digitsText = "три";
+                        break;
+                    case (4):
+                        digitsText = "четыре";
+                        break;
+                    case (5):
+                        digitsText = "пять";
+                        break;
+                    case (6):
+                        digitsText = "шесть";
+                        break;
+                    case (7):
+                        digitsText = "семь";
+                        break;
+                    case (8):
+                        digitsText = "восемь";
+                        break;
+                    case (9):
+                        digitsText = "девять";
+                        break;
+                }
+            }
+            
+            string numberText = $"{tenText} {digitsText}";
+
+            return numberText;
         }
     }
 }
