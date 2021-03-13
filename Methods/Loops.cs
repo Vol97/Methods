@@ -6,7 +6,7 @@ namespace Methods
 {
     public static class Loops
     {
-        public static double RaiseAToPowerB (double a, double b)
+        public static double RaiseAToPowerB(double a, double b)
         {
             double raisedToPower = 1;
 
@@ -17,7 +17,6 @@ namespace Methods
 
             return raisedToPower;
         }
-
         public static int[] ReturnArrayOfNumbersFrom1to1000ThatCanBeDividedByN(int n)
         {
             int counterForArraySize = 0;
@@ -38,7 +37,6 @@ namespace Methods
 
             return resArray;
         }
-
         public static int[] ReturnArrayOfNumbersThatWhenRaisedToPower2AreLessThanN(int n)
         {
             int counterForArraySize = 0;
@@ -58,7 +56,6 @@ namespace Methods
             }
             return resArray;
         }
-
         public static int ReturnTheBiggestDividerOfN(int n)
         {
             int res = 0;
@@ -195,8 +192,10 @@ namespace Methods
 
             return Convert.ToInt32(mirrorNumber);
         }
-        public static int[] RerurnNumbersInRangeFrom1toNWhereSumOfEvenNumbersIsBiggerThanSumOfOdd(int n)
+        public static int[] ReturnNumbersInRangeFrom1toNWhereSumOfEvenNumbersIsBiggerThanSumOfOdd(int n)
         {
+            int arrayLengthCount = 0;
+
             for (int i = 1; i <= n; i++)
             {
                 int sumOfEven = 0;
@@ -216,10 +215,55 @@ namespace Methods
 
                 if (sumOfEven > sumOfOdd)
                 {
-                    Console.WriteLine(i);
+                    ++arrayLengthCount;
                 }
             }
-        }
 
+            int[] resArray = new int[arrayLengthCount];
+            int count = 0;
+
+            for (int i = 1; i <= n; i++)
+            {
+                int sumOfEven = 0;
+                int sumOfOdd = 0;
+
+                for (int number = i; number > 0; number /= 10)
+                {
+                    if ((number % 10) % 2 == 0)
+                    {
+                        sumOfEven += number % 10;
+                    }
+                    else
+                    {
+                        sumOfOdd += number % 10;
+                    }
+                }
+
+                if (sumOfEven > sumOfOdd)
+                {
+                    resArray[count] = i;
+                    ++count;
+                }
+            }
+
+            return resArray;
+        }
+        public static bool FindOutIfAandBHaveSameNumbersInThem (int a, int b)
+        {
+            bool hasSameNumbers = false;
+
+            for (int i = a; i > 0; i /= 10)
+            {
+                for (int j = b; j > 0; j /= 10)
+                {
+                    if (i % 10 == j % 10)
+                    {
+                        hasSameNumbers = true;
+                    }
+                }
+            }
+
+            return hasSameNumbers;
+        }
     }
 }
