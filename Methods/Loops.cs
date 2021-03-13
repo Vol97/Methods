@@ -8,17 +8,45 @@ namespace Methods
     {
         public static double RaiseAToPowerB(double a, double b)
         {
+            if (a == 0 && b < 0)
+            {
+                throw new DivideByZeroException("You tried to raise 0 to a negative power");
+            }
+
             double raisedToPower = 1;
 
-            for (int i = 0; i < b; i++)
+            if (b < 0)
             {
-                raisedToPower *= a;
+                b *= -1;
+
+                for (int i = 0; i < b; i++)
+                {
+                    raisedToPower *= a;
+                }
+
+                raisedToPower = 1 / raisedToPower;
+            }
+            else
+            {
+                for (int i = 0; i < b; i++)
+                {
+                    raisedToPower *= a;
+                }
             }
 
             return raisedToPower;
         }
         public static int[] ReturnArrayOfNumbersFrom1to1000ThatCanBeDividedByN(int n)
         {
+            if (n == 0)
+            {
+                throw new DivideByZeroException();
+            }
+            else if (n < 0)
+            {
+                n *= -1;
+            }
+
             int counterForArraySize = 0;
 
             for (int i = n; i <= 1000; i += n)
@@ -58,6 +86,15 @@ namespace Methods
         }
         public static int ReturnTheBiggestDividerOfN(int n)
         {
+            if (n == 0)
+            {
+                throw new ArgumentException("Zero can't have a divider");
+            }
+            else if (n < 0)
+            {
+                n *= -1;
+            }
+
             int res = 0;
 
             for (int i = n - 1; i != 0; i--)
@@ -121,6 +158,33 @@ namespace Methods
         }
         public static int FindGreatestCommonDivisorOfAandB(int a, int b)
         {
+            if (a == 0 && b == 0)
+            {
+                return 0;
+            }
+            else if (a == 0 || b == 0)
+            {
+                if (a == 0)
+                {
+                    return Math.Abs(b);
+                }
+                else
+                {
+                    return Math.Abs(a);
+                }
+            }
+            else if (a < 0 || b < 0)
+            {
+                if (a < 0)
+                {
+                    a = Math.Abs(a);
+                }
+                if (b < 0)
+                {
+                    b = Math.Abs(b);
+                }
+            }
+
             int divisor = 1;
 
             while (a != 0 && b != 0)
@@ -139,8 +203,13 @@ namespace Methods
 
             return divisor;
         }
-        public static int FindCubicRootOfN(int n)
+        public static int FindCubicRootOfPositiveN(int n)
         {
+            if (n < 0)
+            {
+                throw new ArgumentException("Not a positive number");
+            }
+
             int start = 1;
             int end = n;
 
@@ -248,7 +317,7 @@ namespace Methods
 
             return resArray;
         }
-        public static bool FindOutIfAandBHaveSameNumbersInThem (int a, int b)
+        public static bool FindOutIfAandBHaveSameNumbersInThem(int a, int b)
         {
             bool hasSameNumbers = false;
 

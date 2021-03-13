@@ -10,7 +10,7 @@ namespace Methods
         {
             if (a == b)
             {
-                throw new Exception("b - a = 0, can't divide by zero");
+                throw new ArgumentException("b - a = 0, can't divide by zero");
             }
 
             return (5 * a + b * b) / (b - a);
@@ -29,7 +29,7 @@ namespace Methods
         {
             if (b == 0)
             {
-                throw new Exception("can't divide by zero");
+                throw new DivideByZeroException("can't divide by zero");
             }
 
             double[] divisionResultAndRemainder = new double[2] { a / b, a % b };
@@ -41,7 +41,7 @@ namespace Methods
         {
             if (a == 0)
             {
-                throw new Exception("can't solve the equation if a = 0");
+                throw new DivideByZeroException("can't solve the equation if a = 0");
             }
 
             double x = (c - b) / a;
@@ -53,7 +53,7 @@ namespace Methods
         {
             if (x2 - x1 == 0)
             {
-                throw new Exception("x2 - x1 = 0, can't divide by zero");
+                throw new ArgumentException("x2 - x1 = 0, can't divide by zero");
             }
 
             string equationOfALine = $"y = {(y2 - y1) / (x2 - x1)}x + ({-(x1 * y2 - x1 * y1) / (x2 - x1) + y1})";

@@ -108,6 +108,11 @@ namespace Methods
 
         public static double[] SolvingQuadraticEquation(double a, double b, double c)
         {
+            if(a == 0)
+            {
+                throw new DivideByZeroException("a = 0, so 2*a = 0. Can't divide by zero");
+            }
+
             double[] res;
             double x;
             double x2;
@@ -139,6 +144,11 @@ namespace Methods
 
         public static string TurnTwoDigitNumberIntoText(int number)
         {
+            if(number < 10 || number > 99)
+            {
+                throw new ArgumentException("Not a two-digit number");
+            }
+
             int ten = number / 10;
             int digits = number % 10;
             string tenText = null;
