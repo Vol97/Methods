@@ -223,18 +223,23 @@ namespace Methods
                 }
                 else if (Math.Pow(mid, 3) < n)
                 {
-                    start = mid;
+                    start = mid + 1;
                 }
                 else
                 {
                     return mid; ;
                 }
+
+                if (start == end)
+                {
+                    throw new Exception("Can't get an integer result");
+                }
             }
         }
-        public static int FindOddNumbersInN(int n)
+        public static int FindOddDigitsInN(int n)
         {
             int number;
-            int oddNumbers = 0;
+            int OddDigits = 0;
 
             while (n % 10 != 0)
             {
@@ -242,16 +247,25 @@ namespace Methods
 
                 if (number % 2 != 0)
                 {
-                    ++oddNumbers;
+                    ++OddDigits;
                 }
                 n /= 10;
             }
 
-            return oddNumbers;
+            return OddDigits;
         }
         public static int ReturnMirrorNumber(int n)
         {
             string mirrorNumber = string.Empty;
+
+            if(n < 0)
+            {
+                n = Math.Abs(n);
+            }
+            if(n == 0)
+            {
+                return 0;
+            }
 
             while (n % 10 != 0)
             {
@@ -263,6 +277,11 @@ namespace Methods
         }
         public static int[] ReturnNumbersInRangeFrom1toNWhereSumOfEvenNumbersIsBiggerThanSumOfOdd(int n)
         {
+            if(n <= 0)
+            {
+                throw new ArgumentException("Argument must be bigger or equal to 1");
+            }
+
             int arrayLengthCount = 0;
 
             for (int i = 1; i <= n; i++)
@@ -319,6 +338,23 @@ namespace Methods
         }
         public static bool FindOutIfAandBHaveSameNumbersInThem(int a, int b)
         {
+            if (a == 0 && b == 0)
+            {
+                return true;
+            }
+
+            if (a < 0 || b < 0)
+            {
+                if (a < 0)
+                {
+                    a = Math.Abs(a);
+                }
+                else
+                {
+                    b = Math.Abs(b);
+                }
+            }
+
             bool hasSameNumbers = false;
 
             for (int i = a; i > 0; i /= 10)

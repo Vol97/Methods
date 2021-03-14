@@ -8,6 +8,15 @@ namespace Methods
     {
         public static int FindMinimumValueInArray(int[] array)
         {
+            if(array == null)
+            {
+                throw new ArgumentNullException("Null array.");
+            }
+            if(array.Length == 0)
+            {
+                throw new ArgumentException("Array has no elements");
+            }
+
             int minValue = array[0];
 
             for (int i = 1; i < array.Length; i++)
@@ -22,6 +31,15 @@ namespace Methods
         }
         public static int FindMaximumValueInArray(int[] array)
         {
+            if (array == null)
+            {
+                throw new ArgumentNullException("Null array.");
+            }
+            if (array.Length == 0)
+            {
+                throw new ArgumentException("Array has no elements");
+            }
+
             int maxValue = array[0];
 
             for (int i = 1; i < array.Length; i++)
@@ -36,6 +54,15 @@ namespace Methods
         }
         public static int FindMinimumValueIndexInArray(int[] array)
         {
+            if (array == null)
+            {
+                throw new ArgumentNullException("Null array.");
+            }
+            if (array.Length == 0)
+            {
+                throw new ArgumentException("Array has no elements");
+            }
+
             int minIndex = 0;
 
             for (int i = 1; i < array.Length; i++)
@@ -50,6 +77,15 @@ namespace Methods
         }
         public static int FindMaximumValueIndexInArray(int[] array)
         {
+            if (array == null)
+            {
+                throw new ArgumentNullException("Null array.");
+            }
+            if (array.Length == 0)
+            {
+                throw new ArgumentException("Array has no elements");
+            }
+
             int maxIndex = 0;
 
             for (int i = 1; i < array.Length; i++)
@@ -64,6 +100,15 @@ namespace Methods
         }
         public static int ReturnSumOfNumbersWithOddIndexes(int[] array)
         {
+            if (array == null)
+            {
+                throw new ArgumentNullException("Null array.");
+            }
+            if (array.Length == 0)
+            {
+                throw new ArgumentException("Array has no elements");
+            }
+
             int arrayOddIndexSum = 0;
 
             for (int i = 1; i < array.Length; i += 2)
@@ -75,6 +120,15 @@ namespace Methods
         }
         public static int[] ReverseArray(int[] array)
         {
+            if (array == null)
+            {
+                throw new ArgumentNullException("Null array.");
+            }
+            if (array.Length == 0)
+            {
+                throw new ArgumentException("Array has no elements");
+            }
+
             int[] reverseArray = new int[array.Length];
 
             for (int i = 0; i < array.Length; i++)
@@ -86,6 +140,15 @@ namespace Methods
         }
         public static int CountOddElementsOfTheArray (int[] array)
         {
+            if (array == null)
+            {
+                throw new ArgumentNullException("Null array.");
+            }
+            if (array.Length == 0)
+            {
+                throw new ArgumentException("Array has no elements");
+            }
+
             int oddNumbers = 0;
 
             for (int i = 0; i < array.Length; i++)
@@ -100,6 +163,15 @@ namespace Methods
         }
         public static int[] ChangePlacesOfArrayHalves (int[] array)
         {
+            if (array == null)
+            {
+                throw new ArgumentNullException("Null array.");
+            }
+            if (array.Length == 0)
+            {
+                throw new ArgumentException("Array has no elements");
+            }
+
             int[] reverseHalvesArray = new int[array.Length];
 
             if (array.Length % 2 != 0)
@@ -137,6 +209,15 @@ namespace Methods
         }
         public static int[] SortArrayAscending(int[] array)
         {
+            if (array == null)
+            {
+                throw new ArgumentNullException("Null array.");
+            }
+            if (array.Length == 0)
+            {
+                throw new ArgumentException("Array has no elements");
+            }
+
             for (int i = 0; i < array.Length; i++)
             {
                 int min = i;
@@ -158,6 +239,15 @@ namespace Methods
         }
         public static int[] SortArrayDescending(int[] array)
         {
+            if (array == null)
+            {
+                throw new ArgumentNullException("Null array.");
+            }
+            if (array.Length == 0)
+            {
+                throw new ArgumentException("Array has no elements");
+            }
+
             int key;
             int temp;
 

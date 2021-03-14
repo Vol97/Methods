@@ -8,6 +8,15 @@ namespace Methods
     {
         public static int FindMinimumValueInATwoDimensionalArray(int[,] array)
         {
+            if (array == null)
+            {
+                throw new ArgumentNullException();
+            }
+            if (array.Length == 0)
+            {
+                throw new ArgumentException("Array has no elements");
+            }
+
             int minValue = array[0, 0];
 
             for (int i = 0; i < array.GetLength(0); i++)
@@ -25,6 +34,15 @@ namespace Methods
         }
         public static int FindMaximumValueInATwoDimensionalArray(int[,] array)
         {
+            if (array == null)
+            {
+                throw new ArgumentNullException("Null array.");
+            }
+            if (array.Length == 0)
+            {
+                throw new ArgumentException("Array has no elements");
+            }
+
             int maxValue = array[0, 0];
 
             for (int i = 0; i < array.GetLength(0); i++)
@@ -42,6 +60,15 @@ namespace Methods
         }
         public static int[] FindMinimumValueIndexInATwoDimensionalArray(int[,] array)
         {
+            if (array == null)
+            {
+                throw new ArgumentNullException("Null array.");
+            }
+            if (array.Length == 0)
+            {
+                throw new ArgumentException("Array has no elements");
+            }
+
             int[] minValueIndex = new int[2];
 
             for (int i = 0; i < array.GetLength(0); i++)
@@ -60,6 +87,15 @@ namespace Methods
         }
         public static int[] FindMaximumValueIndexInATwoDimensionalArray(int[,] array)
         {
+            if (array == null)
+            {
+                throw new ArgumentNullException("Null array.");
+            }
+            if (array.Length == 0)
+            {
+                throw new ArgumentException("Array has no elements");
+            }
+
             int[] maxValueIndex = new int[2];
 
             for (int i = 0; i < array.GetLength(0); i++)
@@ -78,6 +114,15 @@ namespace Methods
         }
         public static int CountNumbersInAMatrixThatAreBiggerThanAllTheirNeighbours(int[,] array)
         {
+            if (array == null)
+            {
+                throw new ArgumentNullException("Null array.");
+            }
+            if (array.Length == 0)
+            {
+                throw new ArgumentException("Array has no elements");
+            }
+
             int absoluteMaxNumberCount = 0;
             int trueCount;
             int neighbourCount;
@@ -124,6 +169,15 @@ namespace Methods
         }
         public static int[,] TransposeAMatrix(int[,] array)
         {
+            if (array == null)
+            {
+                throw new ArgumentNullException("Null array.");
+            }
+            if (array.Length == 0)
+            {
+                throw new ArgumentException("Array has no elements");
+            }
+
             int[,] resArray = new int[array.GetLength(1), array.GetLength(0)];
 
             for (int i = 0; i < resArray.GetLength(0); i++)
