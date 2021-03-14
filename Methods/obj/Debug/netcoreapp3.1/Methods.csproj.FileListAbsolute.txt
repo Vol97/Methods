@@ -4,10 +4,10 @@ C:\Users\Сырж\source\repos\Methods\Methods\bin\Debug\netcoreapp3.1\Methods.r
 C:\Users\Сырж\source\repos\Methods\Methods\bin\Debug\netcoreapp3.1\Methods.runtimeconfig.dev.json
 C:\Users\Сырж\source\repos\Methods\Methods\bin\Debug\netcoreapp3.1\Methods.dll
 C:\Users\Сырж\source\repos\Methods\Methods\bin\Debug\netcoreapp3.1\Methods.pdb
-C:\Users\Сырж\source\repos\Methods\Methods\obj\Debug\netcoreapp3.1\Methods.csprojAssemblyReference.cache
 C:\Users\Сырж\source\repos\Methods\Methods\obj\Debug\netcoreapp3.1\Methods.AssemblyInfoInputs.cache
 C:\Users\Сырж\source\repos\Methods\Methods\obj\Debug\netcoreapp3.1\Methods.AssemblyInfo.cs
 C:\Users\Сырж\source\repos\Methods\Methods\obj\Debug\netcoreapp3.1\Methods.csproj.CoreCompileInputs.cache
 C:\Users\Сырж\source\repos\Methods\Methods\obj\Debug\netcoreapp3.1\Methods.dll
 C:\Users\Сырж\source\repos\Methods\Methods\obj\Debug\netcoreapp3.1\Methods.pdb
 C:\Users\Сырж\source\repos\Methods\Methods\obj\Debug\netcoreapp3.1\Methods.genruntimeconfig.cache
+C:\Users\Сырж\source\repos\Methods\Methods\obj\Debug\netcoreapp3.1\Methods.csprojAssemblyReference.cache
