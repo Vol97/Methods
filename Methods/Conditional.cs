@@ -6,7 +6,7 @@ namespace Methods
 {
     public static class Conditional
     {
-        public static double ComparingAandBIfAisBiggerAddThemIfAequalsBMultiplyElseAMinusB(double a, double b)
+        public static double ComparingABIfAisBiggerAddABIfAequalsBMultiplyElseAMinusB(double a, double b)
         {
             double res;
 
@@ -90,7 +90,7 @@ namespace Methods
                 if (a > c)
                 {
                     Variables.SwapVariables(ref b, ref c);
-                    Variables.SwapVariables(ref a, ref c);
+                    Variables.SwapVariables(ref a, ref b);
                 }
                 else
                 {
@@ -108,7 +108,7 @@ namespace Methods
 
         public static double[] SolvingQuadraticEquation(double a, double b, double c)
         {
-            if(a == 0)
+            if (a == 0)
             {
                 throw new DivideByZeroException("a = 0, so 2*a = 0. Can't divide by zero");
             }
@@ -144,9 +144,17 @@ namespace Methods
 
         public static string TurnTwoDigitNumberIntoText(int number)
         {
-            if(number < 10 || number > 99)
+            if (number < 10 && number > -10 && number < -99 || number > 99)
             {
                 throw new ArgumentException("Not a two-digit number");
+            }
+
+            string numberText = null;
+
+            if (number < 0)
+            {
+                number = Math.Abs(number);
+                numberText = "минус ";
             }
 
             int ten = number / 10;
@@ -159,34 +167,34 @@ namespace Methods
                 switch (number)
                 {
                     case (10):
-                        Console.WriteLine("десять");
+                        numberText += "десять";
                         break;
                     case (11):
-                        Console.WriteLine("одинадцать");
+                        numberText += "одинадцать";
                         break;
                     case (12):
-                        Console.WriteLine("двенадцать");
+                        numberText += "двенадцать";
                         break;
                     case (13):
-                        Console.WriteLine("тринадцать");
+                        numberText += "тринадцать";
                         break;
                     case (14):
-                        Console.WriteLine("четырнадцать");
+                        numberText += "четырнадцать";
                         break;
                     case (15):
-                        Console.WriteLine("пятнадцать");
+                        numberText += "пятнадцать";
                         break;
                     case (16):
-                        Console.WriteLine("шестнадцать");
+                        numberText += "шестнадцать";
                         break;
                     case (17):
-                        Console.WriteLine("семнадцать");
+                        numberText += "семнадцать";
                         break;
                     case (18):
-                        Console.WriteLine("восемнадцать");
+                        numberText += "восемнадцать";
                         break;
                     case (19):
-                        Console.WriteLine("девятнадцать");
+                        numberText += "девятнадцать";
                         break;
                 }
             }
@@ -222,36 +230,36 @@ namespace Methods
                 switch (digits)
                 {
                     case (1):
-                        digitsText = "один";
+                        digitsText = " один";
                         break;
                     case (2):
-                        digitsText = "два";
+                        digitsText = " два";
                         break;
                     case (3):
-                        digitsText = "три";
+                        digitsText = " три";
                         break;
                     case (4):
-                        digitsText = "четыре";
+                        digitsText = " четыре";
                         break;
                     case (5):
-                        digitsText = "пять";
+                        digitsText = " пять";
                         break;
                     case (6):
-                        digitsText = "шесть";
+                        digitsText = " шесть";
                         break;
                     case (7):
-                        digitsText = "семь";
+                        digitsText = " семь";
                         break;
                     case (8):
-                        digitsText = "восемь";
+                        digitsText = " восемь";
                         break;
                     case (9):
-                        digitsText = "девять";
+                        digitsText = " девять";
                         break;
                 }
             }
-            
-            string numberText = $"{tenText} {digitsText}";
+
+            numberText += $"{tenText}{digitsText}";
 
             return numberText;
         }

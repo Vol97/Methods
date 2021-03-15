@@ -90,19 +90,22 @@ namespace Methods
             {
                 throw new ArgumentException("Zero can't have a divider");
             }
-            else if (n < 0)
-            {
-                n *= -1;
-            }
 
             int res = 0;
 
-            for (int i = n - 1; i != 0; i--)
+            if (n < 0)
             {
-                if (n % i == 0)
+                res = n * -1;
+            }
+            else
+            {
+                for (int i = n - 1; i != 0; i--)
                 {
-                    res = i;
-                    break;
+                    if (n % i == 0)
+                    {
+                        res = i;
+                        break;
+                    }
                 }
             }
 
@@ -158,19 +161,21 @@ namespace Methods
         }
         public static int FindGreatestCommonDivisorOfAandB(int a, int b)
         {
+            int divisor = 1;
+
             if (a == 0 && b == 0)
             {
-                return 0;
+                divisor = 0;
             }
             else if (a == 0 || b == 0)
             {
                 if (a == 0)
                 {
-                    return Math.Abs(b);
+                    divisor = Math.Abs(b);
                 }
                 else
                 {
-                    return Math.Abs(a);
+                    divisor = Math.Abs(a);
                 }
             }
             else if (a < 0 || b < 0)
@@ -184,8 +189,6 @@ namespace Methods
                     b = Math.Abs(b);
                 }
             }
-
-            int divisor = 1;
 
             while (a != 0 && b != 0)
             {
@@ -241,6 +244,11 @@ namespace Methods
             int number;
             int OddDigits = 0;
 
+            if(Math.Abs(n) == 10)
+            {
+                OddDigits = 1;
+            }
+
             while (n % 10 != 0)
             {
                 number = n % 10;
@@ -249,6 +257,7 @@ namespace Methods
                 {
                     ++OddDigits;
                 }
+
                 n /= 10;
             }
 
@@ -261,10 +270,11 @@ namespace Methods
             if(n < 0)
             {
                 n = Math.Abs(n);
+                mirrorNumber = "-";
             }
             if(n == 0)
             {
-                return 0;
+                mirrorNumber = "0";
             }
 
             while (n % 10 != 0)
@@ -275,11 +285,11 @@ namespace Methods
 
             return Convert.ToInt32(mirrorNumber);
         }
-        public static int[] ReturnNumbersInRangeFrom1toNWhereSumOfEvenNumbersIsBiggerThanSumOfOdd(int n)
+        public static int[] ReturnNumbersInRangeFrom1toNWhereSumOfEvenDigitsIsBiggerThanSumOfOdd(int n)
         {
-            if(n <= 0)
+            if (n < 0)
             {
-                throw new ArgumentException("Argument must be bigger or equal to 1");
+                n = Math.Abs(n);
             }
 
             int arrayLengthCount = 0;
@@ -336,7 +346,7 @@ namespace Methods
 
             return resArray;
         }
-        public static bool FindOutIfAandBHaveSameNumbersInThem(int a, int b)
+        public static bool FindOutIfAandBHaveSameDigitsInThem(int a, int b)
         {
             if (a == 0 && b == 0)
             {
@@ -345,7 +355,12 @@ namespace Methods
 
             if (a < 0 || b < 0)
             {
-                if (a < 0)
+                if (a < 0 && b < 0)
+                {
+                    a = Math.Abs(a);
+                    b = Math.Abs(b);
+                }
+                else if (a<0)
                 {
                     a = Math.Abs(a);
                 }
